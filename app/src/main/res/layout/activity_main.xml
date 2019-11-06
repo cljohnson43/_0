@@ -12,9 +12,19 @@
     android:layout_height="wrap_content"
     android:text="Fire"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/btn_next"
     app:layout_constraintTop_toTopOf="parent"
     />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Next Activity"
+        app:layout_constraintStart_toEndOf="@id/btn_fire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <FrameLayout
         android:id="@+id/container"

@@ -4,14 +4,12 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.AnimationSet
-import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
@@ -21,6 +19,7 @@ import androidx.core.widget.ImageViewCompat
 class MainActivity : AppCompatActivity() {
 
     private lateinit var fireBtn: Button
+    private lateinit var nextBtn: Button
     private lateinit var container: ViewGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         fireBtn = findViewById(R.id.btn_fire) as Button
         fireBtn.setOnClickListener { _ -> fire() }
+
+        nextBtn = findViewById(R.id.btn_next)
+        nextBtn.setOnClickListener {
+            startActivity(Intent(this, BounceActivity::class.java))
+        }
 
     }
 

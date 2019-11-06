@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.week6day2.ScoreViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".BounceActivity">
+
+        <TextView
+            android:id="@+id/tv_score_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/tv_score"
+            android:padding="@dimen/spacing"
+            android:text="Score"
+            android:textSize="@dimen/font"
+            android:gravity="right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_score"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="@dimen/spacing"
+            android:text="@{viewModel.score.toString()}"
+            android:textSize="@dimen/font"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_score_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_score_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+            <com.example.week6day2.BouncyBug
+                android:id="@+id/bug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/bug_green"
+                android:layout_gravity="center"
+                />
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
